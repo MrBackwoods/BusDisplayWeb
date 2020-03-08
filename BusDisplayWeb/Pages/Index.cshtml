@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Bus Departures</h1>        
+        <br>
+        <form method="post">
+            <button>Update departures</button>
+        </form>
+        <br>
+        <table>
+            <tr>
+                <th>Stop</th>
+                <th>Route</th>
+                <th>Destionation</th>
+                <th>Departure time</th>
+            </tr>
+            @foreach (var item in Model.Departures)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.stopName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.route)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.headsign)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.departureTime)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
